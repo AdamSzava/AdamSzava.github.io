@@ -7,14 +7,35 @@ TEMPLATE_HEADER = """<!DOCTYPE html>
     <meta charset="UTF-8">
     <title>Adam Szava - Blog</title>
     <link rel="stylesheet" href="../style.css">
+    <style>
+        .tag {
+            display: inline-block;
+            padding: 0.2em 0.6em;
+            margin: 0.2em;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: white;
+        }
+        .graph-theory { background-color: #0074D9; }
+        .real-analysis { background-color: #2ECC40; }
+        .combinatorics { background-color: #FF851B; }
+        .number-theory { background-color: #B10DC9; }
+        .algebra { background-color: #FF4136; }
+    </style>
 </head>
 <body>
     <header>
         <h1>Blog</h1>
-        <p>Interesting proof and problems</p>
+        <p>Proofs, problems, and mathematical curiosities</p>
     </header>
+    <nav>
+        <a href="../index.html#home">Home</a>
+        <a href="index.html">Blog</a>
+        <a href="../index.html#projects">Projects</a>
+    </nav>
     <main>
 """
+
 
 TEMPLATE_FOOTER = """
     </main>
