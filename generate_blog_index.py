@@ -31,7 +31,6 @@ TEMPLATE_HEADER = """<!DOCTYPE html>
     <nav>
         <a href="../index.html#home">Home</a>
         <a href="index.html">Blog</a>
-        <a href="../index.html#projects">Projects</a>
     </nav>
     <main>
 """
