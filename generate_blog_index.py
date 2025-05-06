@@ -60,7 +60,7 @@ def make_tag_html(tag):
     return f'<span class="tag {class_name}">{tag}</span>'
 
 def generate_blog_index(csv_path, output_path):
-    posts_html = ""
+    posts = []
     with open(csv_path, newline='') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
@@ -73,16 +73,22 @@ def generate_blog_index(csv_path, output_path):
             post_html = f"""
             <article>
                 <h3><a href="{filename}">{title}</a></h3>
-                <div>{tags_html}</div>
                 <p><em>{date}</em></p>
+                <div>{tags_html}</div>
                 <p>{summary}</p>
+                <hr>
             </article>
             """
-            posts_html += post_html
+            posts.append(post_html)
 
+    # Reverse the list so newest posts appear first
+    posts.reverse()
+    posts_html = "\n".join(posts)
     full_html = TEMPLATE_HEADER + posts_html + TEMPLATE_FOOTER
+
     with open(output_path, "w") as f:
         f.write(full_html)
+
 
 # Example usage:
 generate_blog_index("blog/posts.csv", "blog/index.html")
