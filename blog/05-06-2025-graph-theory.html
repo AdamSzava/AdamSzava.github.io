@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Blog Post Title</title>
+    <title>Trees have n-1 Edges</title>
     
     <!-- Link to your main site CSS -->
     <link rel="stylesheet" href="../style.css">
@@ -42,16 +42,25 @@
     </nav>
 
     <main>
-        <h2>Your Blog Post Title</h2>
-        <p><em>Posted on: MM-DD-YYYY</em></p>
+        <h2>Trees have n-1 Edges</h2>
+        <p><em>Posted on: 05-06-2025</em></p>
 
-        <p>This is an example of inline math: $E = mc^2$.</p>
+        <div class="proposition">
+            <strong>Proposition:</strong> For a tree $T$ of order $n\geq 1$, $T$ contains $n-1$ edges.
+        </div>
 
-        <p>And this is display math:</p>
+        <p><em>Proof:</em></p>
 
-        <p>$$\int_0^\infty e^{-x^2} \, dx = \frac{\sqrt{\pi}}{2}$$</p>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet facilisis urna. Praesent ultrices eros in cursus turpis massa tincidunt ante in nibh.</p>
+        <p>We proceed by induction on $n$, the number of nodes.</p>
+        <p> For $n=1$, $T \simeq K_1$, which has $0 = 1-1$ edges.</p>
+        <p> Suppose all trees of order $k \geq 1$ have $k-1$ edges. Take an arbitrary tree $T$ of order $k+1$, we must show it has $k$ edges. 
+            $T$ must contain a leaf $v$ (by yesterday's proposition, all trees of order $n \geq 2$ have leaves, and $T$ is of order at least $2$).
+        </p><p>Consider the graph $T' = T-v$, $T'$ is a tree (since a leaf is never a cut vertex (?)) and is of order $k$, therefore we know
+            by the inductive hypothesis that $T'$ has $k-1$ edges. $T$ can be constructed from $T-v$ by adding a single edge and vertex, and so the
+            number of edges in $T$ is $$\#E(T) = \#E(T-v) +1 =k-1+1 = k$$
+            $\blacksquare$
+        </p>
+        
 
         <p><a href="index.html">&larr; Back to Blog</a></p>
     </main>
