@@ -76,7 +76,6 @@ def generate_blog_index(csv_path, output_path):
                 <p><em>{date}</em></p>
                 <div>{tags_html}</div>
                 <p>{summary}</p>
-                <hr>
             </article>
             """
             posts.append(post_html)
