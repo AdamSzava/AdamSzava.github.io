@@ -1,2 +1,3 @@
 title,filename,date,tags,summary
 Trees have Leaves!,05-05-2025-graph-theory.html,2025-05-05,"Graph Theory",A fundamental fact about trees: we can always pick out a leaf in a tree of order at least 2.
+Trees have n-1 Edges,05-06-2025-graph-theory.html,2025-05-06,"Graph Theory",Another fundamental fact about trees: they can't have too many edges... or too little...
