@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trees have Leaves!</title>
+    
+    <!-- Link to your main site CSS -->
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Inline style for proposition box -->
+    <style>
+        .proposition {
+            border-left: 4px solid #4c74af;
+            background-color: #f9f9f9;
+            padding: 1em;
+            margin: 1.5em 0;
+            font-style: italic;
+        }
+    </style>
+
+    <!-- MathJax for LaTeX rendering -->
+    <script>
+        window.MathJax = {
+            tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]},
+            svg: {fontCache: 'global'}
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+</head>
+<body>
+    <header>
+        <h1>Adam Szava</h1>
+        <p>Mathematics Student, Math Educator, Computer Engineering Grad</p>
+    </header>
+
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="index.html">Blog</a>
+    </nav>
+
+    <main>
+        <h2>Trees have Leaves!</h2>
+        <p><em>Posted on: 05-05-2025</em></p>
+
+        <div class="proposition">
+            <strong>Proposition:</strong> For a tree $T$ of order at least $2$, $T$ contains a node of degree $1$.
+        </div>
+        
+        <p>Before the proof, let's mention a few definitions...</p>
+        <ul>
+            <li>A graph $G$ is a tree if it is connected and acyclic (has no subgraph isomorphic to $C_n$ for any $n \geq 3$).</li>
+            <li>A node of degree $1$ is called a leaf.</li>
+        </ul>
+
+        <p>Let's also mention why we need the order to be at least $2$...</p>
+        <ul>
+            <li>If $T$ is a tree of order $0$ then it is the empty graph, which clearly contains no leaves (since it contains no nodes!).</li>
+            <li>If $T$ is a tree of order $1$ then it is isomorphic to $K_1$. There is only one node in $K_1$ and it is not a leaf (it has degree $0$).</li> 
+        </ul>
+
+        <p><em>Proof:</em></p>
+
+        <p>Suppose $T = (V(T),E(T))$ is a tree of order at least $2$. We can find some path $P$ in $T$ such that $P$ is maximal in terms of length (number of nodes).
+        Let $P = x_1x_2x_3\dots x_k$ for some $k \geq 2$ (since $T$ is connected), and each $x_i \in V(T)$.</p>
+
+        <p><strong>Claim:</strong> $\text{deg}(x_k) = 1$.</p>
+
+        <p>Clearly we have that $\text{deg}(x_k) \geq 1$ since it is at least adjacent to $x_{k-1} \in P$. Suppose for contradiction that 
+            $x_ky \in E(T)$, and $y \neq x_{k-1}$. This can then be handled in two cases:</p>
+            <ul>
+                <li><strong>Case 1:</strong> $y \in P$... if this is the case then $y = x_i$ for some $i \in \{ 1,\dots,  k-2\}$. Then we can construct a cycle $x_kx_ix_{i+1}\dots x_{k}$ which contradicts the fact that $T$ is acyclic.</li> 
+                <li><strong>Case 2:</strong> $y \notin P$... if this is the case then $P' = x_1x_2\dots x_ky$ is a longer path than $P$ which contradicts the fact that $P$ was maximal.</li>
+            </ul>
+
+        <p>$\blacksquare$</p>
+
+        <p><a href="index.html">&larr; Back to Blog</a></p>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Adam Szava. adam.szava@torontomu.ca</p>
+    </footer>
+</body>
+</html>
