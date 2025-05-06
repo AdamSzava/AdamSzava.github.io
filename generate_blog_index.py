@@ -29,7 +29,7 @@ TEMPLATE_HEADER = """<!DOCTYPE html>
         <p>Proofs and Interesting Problems</p>
     </header>
     <nav>
-        <a href="../index.html#home">Home</a>
+        <a href="../index.html">Home</a>
         <a href="../index.html#teaching">Teaching</a>
         <a href="../index.html#research">Research</a>
         <a href="index.html">Blog</a>
