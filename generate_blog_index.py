@@ -25,13 +25,16 @@ TEMPLATE_HEADER = """<!DOCTYPE html>
 </head>
 <body>
     <header>
-        <h1>Blog</h1>
-        <p>Proofs, problems, and mathematical curiosities</p>
+        <h1>ADAM SZAVA</h1>
+        <p>Proofs and Interesting Problems</p>
     </header>
     <nav>
         <a href="../index.html#home">Home</a>
+        <a href="../index.html#teaching">Teaching</a>
+        <a href="../index.html#research">Research</a>
         <a href="index.html">Blog</a>
     </nav>
+    <h1>Blog</h1>
     <main>
 """
 
