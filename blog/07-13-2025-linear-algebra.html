@@ -66,6 +66,9 @@
             $v_1,\dots,v_m$ is linearly independent $\forall m\geq 1$.
         </div>
 
+        First I would just like to note that the condition on the sequence $v_1, \dots$ is essentially that you can stop the list anywhere and get a finite list which is linearly independent. This has to be done because
+        we have not defined a the notion of linear independence in the context of infinite lists of vectors.
+
         <p><em>Proof $\impliedby$:</em></p>
         <p>Suppose $L_1 = v_1,\dots$ is such a sequence of elements of $V$ which is always linearly independent for any stopping point $m \geq 1$.</p>
         <p>Suppose by contradiction that $V$ is finite-dimensional. By definition this means that there is some spanning list for $V$, as in there is some list 
@@ -80,7 +83,7 @@
         <p>We do so using the following process which will never terminate:</p>
         <ul>
             <li>(Step $1$) Choose an arbitrary non-zero element $v_1$ of $V$, start a sequence $B_1 = v_1$</li>
-            <li>(Step $k = 2\dots$) Take the list $B_{k-1}$ from the previous step and choose an arbitrary element $v_k$ from $V \setminus \text{span}(B_{k-1})$ (if possible, else terminate).</li>
+            <li>(Step $k = 2\dots$) Take the list $B_{k-1}$ from the previous step and choose an arbitrary element $v_k$ from $V \setminus \text{span}(B_{k-1})$ (if possible, else terminate). Add $v_k$ to the end of $B_{k-1}$ to form $B_k$.</li>
         </ul>
 
         This process will never end. Suppose the process ends at step $k$, this means that $V \setminus \text{span}(B_{k-1})= \emptyset \implies V = \text{span}(B_{k-1})$ which contradicts the fact that $V$ is not finite-dimensional.
