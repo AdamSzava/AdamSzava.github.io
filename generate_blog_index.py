@@ -52,7 +52,8 @@ TAG_COLORS = {
     "Real Analysis": "real-analysis",
     "Combinatorics": "combinatorics",
     "Number Theory": "number-theory",
-    "Algebra": "algebra"
+    "Algebra": "algebra",
+    "Linear Algebra": "linear-algebra"
 }
 
 def make_tag_html(tag):

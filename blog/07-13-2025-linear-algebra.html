@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Characterizing Infinite Dimensional Vector Spaces (LADR 2A/17)</title>
+    
+    <!-- Link to your main site CSS -->
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Inline style for proposition box -->
+    <style>
+        .proposition {
+            border-left: 4px solid #4c74af;
+            background-color: #f9f9f9;
+            padding: 1em;
+            margin: 1.5em 0;
+            font-style: italic;
+        }
+
+        .theorem {
+            border-left: 4px solid #a637b0;
+            background-color: #f9f9f9;
+            padding: 1em;
+            margin: 1.5em 0;
+            font-style: italic;
+        }
+    </style>
+
+    <!-- MathJax for LaTeX rendering -->
+    <script>
+        window.MathJax = {
+            tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]},
+            svg: {fontCache: 'global'}
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+</head>
+<body>
+    <header>
+        <h1>Adam Szava</h1>
+        <p>Mathematics Student, Math Educator, Computer Engineering Grad</p>
+    </header>
+
+    <nav>
+        <a href="../index.html#home">Home</a>
+        <a href="../index.html#teaching">Teaching</a>
+        <a href="../index.html#research">Research</a>
+        <a href="index.html">Blog</a>
+    </nav>
+
+    <main>
+        <h2>Characterizing Infinite Dimensional Vector Spaces (LADR 2A/17)</h2>
+        <p><em>Posted on: 07-13-2025</em></p>
+
+        <p>This problem is from Axler's Linear Algebra Done Right (4e) and is problem 17 from section 2A.</p> 
+        <p>The following theorem from the text is used in the proof...</p>
+        <div class="theorem">
+            <strong>Theorem 2.22:</strong> In a finite-dimensional vector space, the length of every linearly independent list of vectors is less than or equal to the length of every spanning list of vectors.
+        </div>
+        
+        <p>...and then the exercise is stated now as a proposition...</p>
+
+        <div class="proposition">
+            <strong>Proposition:</strong> A vector space $V$ is infinite dimensional if, and only if, there exists a sequence $v_1,v_2,\dots$ such that
+            $v_1,\dots,v_m$ is linearly independent $\forall m\geq 1$.
+        </div>
+
+        <p><em>Proof $\impliedby$:</em></p>
+        <p>Suppose $L_1 = v_1,\dots$ is such a sequence of elements of $V$ which is always linearly independent for any stopping point $m \geq 1$.</p>
+        <p>Suppose by contradiction that $V$ is finite-dimensional. By definition this means that there is some spanning list for $V$, as in there is some list 
+            $L_2 = u_1,\dots,u_n$ of vectors in $V$ such that $$V = \text{span}(\underbrace{u_1,\dots,u_n}_{L_2})$$
+            $L_2$ is spanning list of $V$ of length $n$. Furthermore we know that $v_1,\dots,v_{n},v_{n+1}$ is a linearly independent list of vectors in $V$ of length $m = n+1$. Notably:
+            $$\text{length(spanning list)} = n < n+1 = \text{length(linearly independent list)}$$
+            Which contradicts the fact that for finite dimensional vector spaces, we know that the lenth of every spanning list is at least the length of any linearly indendent list (2.22 from LADR-4e, stated before the proof).
+
+
+        <p><em>Proof $\implies$:</em></p>
+        <p> Suppose $V$ is infinite-dimensional, we show how to construct such an infinite sequence $v_1,\dots$</p>
+        <p>We do so using the following process which will never terminate:</p>
+        <ul>
+            <li>(Step $1$) Choose an arbitrary non-zero element $v_1$ of $V$, start a sequence $B_1 = v_1$</li>
+            <li>(Step $k = 2\dots$) Take the list $B_{k-1}$ from the previous step and choose an arbitrary element $v_k$ from $V \setminus \text{span}(B_{k-1})$ (if possible, else terminate).</li>
+        </ul>
+
+        This process will never end. Suppose the process ends at step $k$, this means that $V \setminus \text{span}(B_{k-1})= \emptyset \implies V = \text{span}(B_{k-1})$ which contradicts the fact that $V$ is not finite-dimensional.
+
+        <p>$\blacksquare$</p>
+
+        <p><a href="index.html">&larr; Back to Blog</a></p>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Adam Szava. adam.szava@torontomu.ca</p>
+    </footer>
+</body>
+</html>
