@@ -60,19 +60,19 @@
 
         <p><em>Proof:</em></p>
         <p>Let $(x_1,\dots, x_k)$ be an optimal burning 
-            sequence of $P_n$ (also label the vertices of $P_n$ as $(v_1,\dots, v_n$). This proof is broken into showing there is some strategy in which $k = \lceil \sqrt{n} \rceil$ and that in general $k \geq \lceil \sqrt{n} \rceil$.
+            sequence of $P_n$ (also label the vertices of $P_n$ as $(v_1,\dots, v_n$)). This proof is broken into two parts: showing there is some strategy in which $k = \lceil \sqrt{n} \rceil$ and that in general $k \geq \lceil \sqrt{n} \rceil$.
             From this we can conclude that $b(P_n) = \lceil \sqrt{n} \rceil$.
         </p>
 <hr>
         <p><em>$k \geq \lceil \sqrt{n} \rceil$:</em></p>
         <p>We begin our discussion by proving the lower bound on the length of the optimal burning sequence. Informally, if we can show that 
-        $b(P_n) \geq k$ we are saying that it couldn't take any less rounds than $k$, but we are not sure if it can actually be done in $k$ rounds.</p>
+        $b(P_n) \geq k$ we are saying that burning couldn't take any less rounds than $k$, but we are not sure if it can actually be done in $k$ rounds.</p>
 
         To this effect, we know if the game takes $k$ rounds to finish, then $k$ sources are chosen. We consider what is the maximum possible coverage of
         burning spread from these $k$ sources at the end of $k$ rounds, this assumes ideal choices for sources with no overlap. Naturally, if we can show under these conditions
         the game must still take at least $ \lceil \sqrt{n} \rceil$ rounds, then that is a lower bound for the burning number.
 
-        <p> <ul>
+        <p> <ul> 
             <li>The first source $x_1$ in the burning sequence will be responsible for burning itself $(1)$, and then $k-1$ (this is how many rounds are left)
             more nodes in either direction along the path ($2(k-1)$), so in total it will be responsible for burning $2(k-1)+1$ vertices.</li>
             <li>So, we can say in general that $x_i$ will be responsible for burning $2(k-i)+1$ vertices in the path.</li>
@@ -82,7 +82,7 @@
         </ul>
         So this means under ideal conditions where there is no overburning, we have that the total number of nodes burned after $k$ rounds is:
         $$\sum_{i = 1}^k [2(k-i)+1] = \cdots = k^2$$
-        ... where I skipped over the algebra (simple application of well known formulas for finite series). Well we want this to burn the whole graph, so it better be at least $n$ (the number of nodes in the path).
+        ... where I skipped over the algebra (simple application of well known formulas for finite series). We want this to burn the whole graph, so it better be at least $n$ (the number of nodes in the path).
         $$k^2 \geq n \implies k \geq \sqrt{n} \implies k \geq \lceil \sqrt{n} \rceil$$.
         </p>
         <hr>
@@ -96,7 +96,7 @@
             <li>The next-to-last source $x_{k-1}$ is responsible for burning $3$ nodes: itself, and spread to $2$ nodes in either direction. It must not be the one directly before $v_n$ (as in, $v_{n-1}$) because then it would spread to burn $v_n$ in the next round. 
                 So instead $$x_{k-1} = v_{n-2}$$</li>
             <li>Let's do one more... $x_{k-2}$ will burn $5$ nodes in the path, notably it spreads the burning $2$ hops towards $x_{k-1}$, while $x_{k-1}$ will spread similarly by $1$ hop towards $x_{k-2}$ by the end of the game.
-                For this logic it is not enough for them to be $1$ node apart like in the previous case, but they need an additional $2$ spaces between them to spread (one from each source). Therefore:
+                In this case it is not enough for them to be $1$ node apart like in the previous case, but they need an additional $2$ spaces between them to spread (one from each source). Therefore:
                 $$x_{k-2} = v_{n-6}$$
             </li>
             <li>We continue this pattern, each time the sources should be an additional $2$ hops apart. In general this means that ($\forall 0 \leq i \leq k-2$):
@@ -115,7 +115,7 @@
         </div>
         
         <p>Indeed, this is true by construction. For all $i$ we have that $N_{i}[x_{k-i}]$ is an "interval" of length $2i+1$, and the collection of these intervals are (by design) pairwise disjoint, and cover all of $V(G)$.
-            The only detail to consider is what happens when $x_1 = v_1$, but in such a case we just introduce a small overlap between the burning radii of $x_1$ and $x_2$ (which is fine, it still does the job in $k$ rounds).
+            The only detail to consider is what might happen when $x_1 = v_1$, but in such a case we just introduce a small overlap between the burning radii of $x_1$ and $x_2$ (which is fine, it still does the job in $k$ rounds).
         </p>
 
         <hr>
