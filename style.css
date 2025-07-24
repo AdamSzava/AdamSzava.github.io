@@ -128,7 +128,14 @@ max-width: 300px;
 .teaching-button:hover {
     background-color: #5a8cb5;
 }
-
+hr {
+    border: none;
+    height: 4px;
+    background-color: #c0d4e6;
+    margin: 2rem 0;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 .tag {
     display: inline-block;
     background-color: #79a7d3;
@@ -146,3 +153,4 @@ max-width: 300px;
 .tag.graph-theory { background-color: #577590; }
 .tag.algebra { background-color: #f9c74f; }
 .tag.combinatorics { background-color: #90be6d; }
+.tag.graph-burning { background-color: #cf3434; }
