@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Column Rank Equals Row Rank</title>
+    
+    <!-- Link to your main site CSS -->
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Inline style for proposition box -->
+    <style>
+        .proposition {
+            border-left: 4px solid #4c74af;
+            background-color: #f9f9f9;
+            padding: 1em;
+            margin: 1.5em 0;
+            font-style: italic;
+        }
+
+        .theorem {
+            border-left: 4px solid #a637b0;
+            background-color: #f9f9f9;
+            padding: 1em;
+            margin: 1.5em 0;
+            font-style: italic;
+        }
+
+        .definition {
+            border-left: 4px solid #ecd528;
+            background-color: #f9f9f9;
+            padding: 1em;
+            margin: 1.5em 0;
+            font-style: italic;
+        }
+    </style>
+
+    <!-- MathJax for LaTeX rendering -->
+    <script>
+        window.MathJax = {
+            tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]},
+            svg: {fontCache: 'global'}
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+</head>
+<body>
+    <header>
+        <h1>Adam Szava</h1>
+        <p>Mathematics Student, Math Educator, Computer Engineering Grad</p>
+    </header>
+
+    <nav>
+        <a href="../index.html#home">Home</a>
+        <a href="../index.html#teaching">Teaching</a>
+        <a href="../index.html#research">Research</a>
+        <a href="index.html">Blog</a>
+    </nav>
+
+    <main>
+        <h2>Column Rank Equals Row Rank</h2>
+        <p><em>Posted on: 07-25-2025</em></p>
+
+        Given a matrix $A$ with coefficients in $\mathbb{F} \in \{ \mathbb{R}, \mathbb{C}\}$, we can define it's column and row ranks as follows.
+
+        <div class="definition">
+            <strong>Definition:</strong> 
+            <ul>
+                <li>The column rank of $A \in \mathbb{F}^{m,n}$ is the dimension of the span of the columns of $A$ in $\mathbb{F}^{m,1}$.</li>
+                <li>The row rank of $A \in \mathbb{F}^{m,n}$ is the dimension of the span of the rows of $A$ in $\mathbb{F}^{1,n}$.</li>
+                
+
+
+            </ul>
+        </div>
+        
+        In this post we follow <em>Axler's LADR-4e</em> in proving the following theorem...
+
+        <div class="proposition">
+            <strong>Proposition 1:</strong> Suppose $A \in \mathbb{F}^{m,n}$, then the column rank of $A$ equals the row rank of $A$.
+        </div>
+
+        Before we prove this theorem, let's set this up a bit. The significance of this theorem is the fact that they are always equal allows us to talk about the "rank" of a matrix without specifying which one. We begin with the following theorem which we state without proof, although the proof is a simple application
+        of the definition of matrix multiplication.
+        <div class="theorem">
+            <strong>Theorem:</strong> 
+            Suppose $C \in \mathbb{F}^{m,c}$ and $R \in \mathbb{F}^{c,n}$.
+            <ul>
+                <li>Column $k \in \{1,\dots, n\}$ of $CR$ is a linear combination of the columns of $C$ with coefficients coming from column $k$ of $R$.</li>
+                <li>Row $j \in \{1,\dots, m\}$ of $CR$ is a linear combination of the rows of $R$ with coefficients coming from row $j$ of $C$.</li>
+            </ul>
+        </div>
+
+        The main result of this post relies heavily on the existence of a <em>column-row</em> factorization of a matrix $A$. We prove this now.
+        <div class="proposition">
+            <strong>Proposition 2:</strong> Suppose $A \in \mathbb{F}^{m,n}$, and column rank $c \geq 1$, then there exists a $C \in \mathbb{F}^{m,c}$ and $R \in \mathbb{F}^{c,n}$ such that $A = CR$.
+        </div>
+        <p><em>Proof of Proposition (2):</em></p>
+
+        First, we construct $C$. Take the list of columns of $A$ and call it $L$:
+        $$L = A_{\cdot, 1},\dots, A_{\cdot,n}$$
+        $L$ is a spanning list for the column space of $A$, and so it can be reduced to a basis $L'$ of the space. This basis necessarily has length $1 \leq c \leq n$. Recall $A$ has $m$ rows.
+        We can construct the matrix $C \in \mathbb{F}^{m,c}$ by using the elements of $L$ as the columns.
+
+        <p>Second, we construct the matrix $R$. We want to use the first point from the <em>Theorem</em> stated above. We will construct $R$ in such a way that column $k \in \{1,\dots, n\}$ of $A$ is a linear combination of the columns of $C$
+        with coefficients coming from column $k$ of $R$, in which case we have $A = CR$. Indeed, this can be done because the columns of $C$ are a basis for the column space of $A$, so indeed there is a unique set of coefficients in $\mathbb{F}$ such that column $1 \leq k \leq n$ of $A$ is a linear 
+        combination of the $c$ columns of $C$. Therefore we will have $c$ coefficients for the $n$ columns in $A$. These $c$ values can be arranged into columns to form $R$.</p>
+
+        <p>$\blacksquare$</p>
+
+        Now that we know the existence of such a factorization for all matrices, we can prove the main theorem of this post, which I will restate below. Also relevant is the definition of the matrix transpose.
+
+        <div class="definition">
+            <strong>Definition:</strong> Let $A \in \mathbb{F}^{m,n}$, then define $A^t \in \mathbb{F}^{n,m}$ such that:
+            $$(A^t)_{k,j} := A_{j,k}$$
+        </div>
+
+        <div class="proposition">
+            <strong>Proposition 1:</strong> Suppose $A \in \mathbb{F}^{m,n}$, then the column rank of $A$ equals the row rank of $A$.
+        </div>
+        <p><em>Proof of Proposition (1):</em></p>
+        Let $c$ denote the column rank of $A = CR$ (where $CR$ is it's column-row factorization, $C \in \mathbb{F}^{m,c}, R \in \mathbb{F}^{c,n}$).
+
+        <p><em>$\text{column rank of }A \geq \text{ row rank of }A$</em>:</p>
+
+        We show the inequality by showing that the row space of $A$ is spanned by at most $c$ vectors. By the second point from the <em>Theorem</em> stated above, we have that the every row of $A = CR$ is a linear combination of the rows of $R$, there are $c$ rows in $R$
+        and so we know there is a spanning list for the row space of $A$ of length $c$. Therefore we have that the row rank of $A$ (which is the dimension of the row space of $A$, as in the length of the basis that can be obtained by reducing the $c$ rows from $R$) $\leq c =$ the column rank of $A$.
+        
+
+        <p><em>$\text{column rank of }A \leq \text{ row rank of }A$</em>:</p>
+        
+        An analogous process can be done for $A^t$, showing that:
+        $$\text{row rank of }A^t \leq \text{ column rank of }A^t$$
+
+        Combining this with the fact that the row rank of $A^t$ is equal to the column rank of $A$, and vice-versa, we are done.
+        
+        <p>$\blacksquare$</p>
+
+
+        <p>If you have questions, comments, or corrections relating to this post feel free to <a href="/index.html">contact me!</a></p>
+        <p><a href="index.html">&larr; Back to Blog</a></p>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Adam Szava. adam.szava@torontomu.ca</p>
+    </footer>
+</body>
+</html>

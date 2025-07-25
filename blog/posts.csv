@@ -2,4 +2,5 @@ title,filename,date,tags,summary
 Trees have Leaves!,05-05-2025-graph-theory.html,2025-05-05,"Graph Theory",A fundamental fact about trees: we can always pick out a leaf in a tree of order at least 2.
 Trees have n-1 Edges,05-06-2025-graph-theory.html,2025-05-06,"Graph Theory",Another fundamental fact about trees: they can't have too many edges... or too little...
 Characterizing Infinite Dimensional Vector Spaces (LADR 2A/17),07-13-2025-linear-algebra.html,2025-07-13,"Linear Algebra",This exercise from Axler's Linear Algebra Done Right 4e gives a useful way to characterize infinite dimensional vector spaces.
-Burning Paths,07-23-2025-graph-burning.html,2025-07-13,"Graph Burning",We take a detailed look at an early result in graph burning.
+Burning Paths,07-23-2025-graph-burning.html,2025-07-23,"Graph Burning",We take a detailed look at an early result in graph burning.
+Column Rank Equals Row Rank,07-25-2025-linear-algebra.html,2025-07-25,"Linear Algebra",A fundamental result about matrices is that we can unambiguously talk about the dimension of the span of either its rows or its columns--because they are equal!
