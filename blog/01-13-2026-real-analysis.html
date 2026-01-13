@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Blog Post Title</title>
+    
+    <!-- Link to your main site CSS -->
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Inline style for proposition box -->
+    <style>
+        .proposition {
+            border-left: 4px solid #4c74af;
+            background-color: #f9f9f9;
+            padding: 1em;
+            margin: 1.5em 0;
+            font-style: italic;
+        }
+
+        .theorem {
+            border-left: 4px solid #a637b0;
+            background-color: #f9f9f9;
+            padding: 1em;
+            margin: 1.5em 0;
+            font-style: italic;
+        }
+
+        .definition {
+            border-left: 4px solid #ecd528;
+            background-color: #f9f9f9;
+            padding: 1em;
+            margin: 1.5em 0;
+            font-style: italic;
+        }
+    </style>
+
+    <!-- MathJax for LaTeX rendering -->
+    <script>
+        window.MathJax = {
+            tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]},
+            svg: {fontCache: 'global'}
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+</head>
+<body>
+    <header>
+        <h1>Adam Szava</h1>
+        <p>Mathematics Student, Math Educator, Computer Engineering Grad</p>
+    </header>
+
+    <nav>
+        <a href="../index.html#home">Home</a>
+        <a href="../index.html#teaching">Teaching</a>
+        <a href="../index.html#research">Research</a>
+        <a href="index.html">Blog</a>
+    </nav>
+
+    <main>
+        <h2>The Interior Extremum Theorem</h2>
+        <p><em>Posted on: 01-13-2026</em></p>
+
+        We follow Understanding Analysis by Stephen Abbott (2e) for the proof of the following.
+        <div class="theorem">
+            <strong>Theorem 5.2.6 (Interior Extremum Theorem):</strong> Let $f$ be differentiable on $(a,b)$ and let there be some $c\in(a,b)$ for which $c$ is a maximum in the sense that $f(c) \geq f(x) \forall x\in (a,b)$. Then $f'(c) = 0$.
+        </div>
+        <p><em>Proof:</em></p>
+
+        We aim to show $f'(c) = 0$. Let $d(x)$ denote the difference quotient at $c$, as in $$d(x) = \frac{f(x)-f(c)}{x-c}$$Note that we know the limit $\lim_{x \to c} d(x)$ exists and equals $f'(c)$. The idea is this: Recall the sequential characterization of the limit which states that if we have an arbitrary sequence $z_n \to c$, then $\lim_n d(z_n) = f'(c)$.
+        If $d(z_n) \geq 0 \forall n\in \mathbb{N}$, then the order limit theorem would tell us that $\lim_n d(z_n) = f'(c) \geq 0$ as well. Similarly if $d(z_n) \leq 0 \forall n\in\mathbb{N}$ we'd have $f'(c) \leq 0$.
+
+        <p>We construct two such sequences. Note that since $c\in (a,b)$ we can split this domain into $(a,c] \cup [c,b)$ and define a sequence $x_n \to c$ on the smaller set, and a sequence $y_n \to c$ on the greater one.</p>
+        Indeed, for all $n\in \mathbb{N}$ let $x_n := c- \frac{c-a}{n+1}$, and $y_n := c+ \frac{b-c}{n+1}$. Clearly we have:
+        
+        <ul>
+            <li>$x_n \to c$, and $y_n \to c$</li>
+            <li>$a < x_n < c < y_n< b \forall n\in \mathbb{N}$</li>
+            <li>As already mentioned since $\lim_{x\to c} d(x)$ exists we also have that $\lim_n d(x_n) = \lim_n d(y_n) = f'(c)$.
+            </li>
+        </ul>
+
+        Now we claim that $d(x_n) \geq 0$ and $d(y_n) \leq 0 \forall n\in \mathbb{N}$ and so by the order limit theorem we have that $\lim_nd(x_n) = f'(c) \geq 0$ and $\lim_nd(y_n) = f'(c) \leq 0$, and so $f'(c) = 0$.
+
+        <p>Indeed, consider the following:</p>
+        <p>$$d(x_n) = \frac{f(x_n)-f(c)}{x_n-c} \geq 0$$</p>
+        <p>$$d(y_n) = \frac{f(y_n)-f(c)}{y_n-c} \leq 0$$</p>
+        Since in the first one both the numerator and denominator are negative always, and in the second one the numerator is negative while the denominator is positive always.
+
+        <p>$\blacksquare$</p>
+
+        Note that this extends to local maxima as well. By definition a local maximum is a point $c$ in the domain such that there exists an open interval $(a',b') \subseteq (a,b)$ such that when the function is restricted to that domain, the value $f(c)$  becomes the maximum. Then just apply the same theorem. 
+        
+        <p>If you have questions, comments, or corrections relating to this post feel free to <a href="/index.html">contact me!</a></p>
+        <p><a href="index.html">&larr; Back to Blog</a></p>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Adam Szava. adam.szava@torontomu.ca</p>
+    </footer>
+</body>
+</html>
