@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Exercise</title>
+    
+    <!-- Link to your main site CSS -->
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Inline style for proposition box -->
+    <style>
+        .proposition {
+            border-left: 4px solid #4c74af;
+            background-color: #f9f9f9;
+            padding: 1em;
+            margin: 1.5em 0;
+            font-style: italic;
+        }
+
+        .theorem {
+            border-left: 4px solid #a637b0;
+            background-color: #f9f9f9;
+            padding: 1em;
+            margin: 1.5em 0;
+            font-style: italic;
+        }
+
+        .definition {
+            border-left: 4px solid #ecd528;
+            background-color: #f9f9f9;
+            padding: 1em;
+            margin: 1.5em 0;
+            font-style: italic;
+        }
+    </style>
+
+    <!-- MathJax for LaTeX rendering -->
+    <script>
+        window.MathJax = {
+            tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]},
+            svg: {fontCache: 'global'}
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+</head>
+<body>
+    <header>
+        <h1>Adam Szava</h1>
+        <p>Mathematics Student, Math Educator, Computer Engineering Grad</p>
+    </header>
+
+    <nav>
+        <a href="../index.html#home">Home</a>
+        <a href="../index.html#teaching">Teaching</a>
+        <a href="../index.html#research">Research</a>
+        <a href="index.html">Blog</a>
+    </nav>
+
+    <main>
+        <h2>Elementary Exercises Relating to Groups</h2>
+        <p><em>Posted on: 01-21-2026</em></p>
+
+        The following exercises appears in Judson's Abstract Algebra with Applications as exercise 25. Note that I will use multiplicative notation for the group operation, and the group identity is denoted as $e$.
+        <div class="proposition">
+            <strong>Proposition:</strong> Let $(G,\cdot)$ be a group, and $a,b\in G$. Show that $\forall n\in \mathbb{Z}, ab^{n}a^{-1} = (aba^{-1})^n$.
+        </div>
+        <p><em>Proof:</em></p>
+
+        We proceed by induction on $n\geq 0$ then we extend this to all of $\mathbb{Z}$.
+        Let $n = 0$, and note that $a^0 := e$ for any $a\in G$. Then $ab^0a^{-1} = aea^{-1} = aa^{-1} = e = (aba^{-1})^0$. Also, consider $n=1$, $ab^1a^{-1} = aba^{-1} = (aba^{-1})^1$ (technically, should the base case be $n = 0$ or $n= 1$?).
+
+        <p>Now let $k > 1$. Suppose $ab^ka^{-1} = (aba^{-1})^k$. Now consider $(aba^{-1})^{k+1} = (aba^{-1})(aba^{-1})^k = (aba^{-1})(ab^ka^{-1}) = aba^{-1}ab^ka^{-1} = abeb^ka^{-1} = abb^ka^{-1} = ab^{k+1}a^{-1}$</p>
+
+        Now let $n < 0$, so $n = -m$ for some $m\in \mathbb{N}$. Then we show $ab^na^{-1} = (aba^{-1})^n$. Indeed,
+
+        <p>If you have questions, comments, or corrections relating to this post feel free to <a href="/index.html">contact me!</a></p>
+        <p><a href="index.html">&larr; Back to Blog</a></p>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Adam Szava. adam.szava@torontomu.ca</p>
+    </footer>
+</body>
+</html>
